@@ -1,0 +1,3 @@
+[submodule "Assets/Github/UnityOSC"]
+	path = Assets/Github/UnityOSC
+	url = https://github.com/jorgegarcia/UnityOSC.git

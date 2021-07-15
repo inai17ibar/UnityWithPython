@@ -5,13 +5,15 @@ using System.IO;
 using UnityEngine;
 
 // Python for Unityを使わずに、任意のPyhtonを実行する方法 
-public class PythonExecutor : MonoBehaviour
+public class PyoscClientExecutor : MonoBehaviour
 {
+    private Process process;
+
     //pythonがある場所
     private string pyExePath = @"c:\Program Files\Python36\python.exe";
 
     //実行したいスクリプトがある場所
-    private string pyCodePath = @"Assets/PythonScript/hello.py";
+    private string pyCodePath = @"Assets/PythonScript/pyoscclient.py";
 
     private void Start()
     {
@@ -22,22 +24,36 @@ public class PythonExecutor : MonoBehaviour
             UseShellExecute = false,//シェルを使うかどうか
             CreateNoWindow = true, //ウィンドウを開くかどうか
             RedirectStandardOutput = true, //テキスト出力をStandardOutputストリームに書き込むかどうか
-            Arguments = pyCodePath + " hello", //実行するスクリプト 引数(複数可)
+            Arguments = pyCodePath, //実行するスクリプト 引数(複数可)
         };
 
         //外部プロセスの開始
-        Process process = Process.Start(processStartInfo);
+        process = Process.Start(processStartInfo);
 
         //ストリームから出力を得る
         StreamReader streamReader = process.StandardOutput;
         string str = streamReader.ReadLine();
-
-        //外部プロセスの終了
-        process.WaitForExit();
-        process.Close();
-
-        //実行
         print(str);
     }
-}
 
+    private void Update()
+    {
+        if (process != null)
+        {
+            //ストリームから出力を得る
+            //StreamReader streamReader = process.StandardOutput;
+            //string str = streamReader.ReadLine();
+            //print(str);
+
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                //外部プロセスの終了
+                process.WaitForExit();
+                process.Close();
+
+                UnityEditor.EditorApplication.isPlaying = false;
+                //UnityEngine.Application.Quit();
+            }
+        }
+    }
+}

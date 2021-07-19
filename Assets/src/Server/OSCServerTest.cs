@@ -27,6 +27,7 @@ public class OSCServerTest : MonoBehaviour
             // データを新たに受信したら
             if (currentDataLen != item.Value.packets.Count)
             {
+                Debug.Log("received packet.");
                 currentDataLen = item.Value.packets.Count;
 
                 // 最後に受信したデータのIndexを取得
@@ -34,7 +35,7 @@ public class OSCServerTest : MonoBehaviour
 
                 // 最後に受信したデータを取得
                 string s2 = item.Value.packets[lastPacketIndex].Data[0].ToString();
-
+                
                 // 取得したデータの数字に対応する部分を黄色に変更
                 if (s1.Contains(s2))
                 {

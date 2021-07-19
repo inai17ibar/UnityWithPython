@@ -7,16 +7,16 @@ namespace GameSample {
 
     public class OSCClientTest : MonoBehaviour
     {
-
-        bool startFlag = false;
+        public bool startFlag = false;
         void Start()
         {
-            startFlag = FindObjectOfType<GameController>().flag;
             OSCHandler.Instance.Init();
         }
 
         void Update()
         {
+            startFlag = FindObjectOfType<GameController>().flag;
+
             // ゲームがスタートしてから送信可能になる
             if (startFlag)
             {

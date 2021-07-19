@@ -51,7 +51,7 @@ public class PyoscClientExecutor : MonoBehaviour
                 process.WaitForExit();
                 process.Close();
 
-                UnityEditor.EditorApplication.isPlaying = false;
+                //UnityEditor.EditorApplication.isPlaying = false;
                 //UnityEngine.Application.Quit();
             }
         }

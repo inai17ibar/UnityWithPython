@@ -101,7 +101,7 @@ namespace GameServer {
             //Initialize OSC servers (listeners)
             //Example:
 
-            CreateServer("OSCServerTest", 8001);
+            CreateServer("OSCServerTest", 8080);
             //CreateServer("AndroidPhone", 6666);
         }
 

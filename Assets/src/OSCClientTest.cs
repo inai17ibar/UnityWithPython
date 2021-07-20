@@ -29,6 +29,7 @@ namespace GameSample {
                         Debug.Log(inputStr + " is pressed");
                         int sentInt;
                         int.TryParse(inputStr, out sentInt);
+                        //OSC‚Ì‘—M•”
                         OSCHandler.Instance.SendMessageToClient("OSCClientTest", "/Int", sentInt);
                     }
                 }

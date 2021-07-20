@@ -1118,7 +1118,7 @@ MonoBehaviour:
   startButton: {fileID: 704306582}
   client: {fileID: 1991587368}
   instructUI: {fileID: 1582416793}
-  ip: 172.0.0.1
+  ip: 127.0.0.1
   port: 8080
   flag: 0
 --- !u!1 &1440063538
